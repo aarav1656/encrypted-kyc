@@ -2,7 +2,7 @@ import { BrowserProvider } from "ethers";
 import { createFhevmInstance } from "./utils/fhevm";
 import { useState, useCallback, useEffect, useMemo, React } from "react";
 
-const AUTHORIZED_CHAIN_ID = ["0x2382", "0x2383"]; // 9090, 9091
+const AUTHORIZED_CHAIN_ID = ["0x2382"];
 
 export const Connect = ({ children }) => {
   const [connected, setConnected] = useState(false);
@@ -86,14 +86,14 @@ export const Connect = ({ children }) => {
         params: [
           {
             chainId: AUTHORIZED_CHAIN_ID[0],
-            rpcUrls: ["https://testnet.inco.org"],
+            rpcUrls: ["https://testnet.inco.org/"],
             chainName: "Inco Gentry Testnet",
             nativeCurrency: {
               name: "INCO",
               symbol: "INCO",
               decimals: 18,
             },
-            blockExplorerUrls: ["https://explorer.inco.org/"],
+            blockExplorerUrls: ["https://explorer.testnet.inco.org"],
           },
         ],
       });
@@ -109,10 +109,13 @@ export const Connect = ({ children }) => {
     if (!validNetwork) {
       return (
         <div>
-          <p>You're not on the correct network</p>
+          <p className="text-red-500">You&apos;re not on the correct network</p>
           <p>
-            <button className="Connect__button" onClick={switchNetwork}>
-              Switch to Inco Gentry Testnet
+            <button
+              className="Connect__button bg-gray-200 hover:bg-blue-400"
+              onClick={switchNetwork}
+            >
+              Switch to Inco Network Testnet
             </button>
           </p>
         </div>
@@ -123,18 +126,33 @@ export const Connect = ({ children }) => {
   }, [account, provider, validNetwork, children, switchNetwork]);
 
   if (error) {
-    return <p>No wallet has been found.</p>;
+    return <p className="text-white">No wallet has been found.</p>;
   }
 
   const connectInfos = (
-    <div className="Connect__info">
+    <div className="Connect__info flex flex-col">
+      <a
+        href="https://faucet.inco.org/"
+        target="_blank" rel="noreferrer"
+        className="mb-16 text-gray-500 hover:text-gray-900"
+      >
+        Get test tokens from Faucet
+      </a>
       {!connected && (
-        <button className="Connect__button" onClick={connect}>
+        <button
+          className="Connect__button bg-gray-200 hover:bg-blue-400"
+          onClick={connect}
+        >
           Connect your wallet
         </button>
       )}
       {connected && (
-        <div className="Connect__account">Connected with {account}</div>
+        <div className="Connect__account text-gray-500">
+          Connected with{" "}
+          {account.substring(0, 5) +
+            "..." +
+            account.substring(account.length - 5, account.length)}
+        </div>
       )}
     </div>
   );
