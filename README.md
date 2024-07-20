@@ -7,6 +7,8 @@ KYC (Know Your Customer) and AML (Anti-Money Laundering) processes are crucial i
 
 ## Demo
 
+https://github.com/user-attachments/assets/15bd2838-e391-43ec-b97a-f8010debd500
+
 **Implementation on-Chain:**
 1. **Data Collection and Encryption:**
    - Users provide their identification documents and other necessary information to a trusted KYC provider.

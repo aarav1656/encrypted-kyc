@@ -24,7 +24,7 @@ function App() {
     <Router>
       <div className="App flex flex-col font-press-start text-black">
         <nav className="flex-col justify-around p-4 bg-gray-200">
-          <Link to="/">Confidential DID</Link> {" | "}
+          <Link to="/">Check Credit Score Privately</Link> {" | "}
           <Link to="/defi-eligibility">Check DeFi Eligibility</Link> {" | "}
           <Link to="/kycprovider">KYC Provider</Link>
         </nav>

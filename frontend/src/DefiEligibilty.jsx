@@ -52,6 +52,8 @@ const DeFiEligibility = () => {
           ageThreshold,
           defiPropertyThreshold
         );
+
+        console.log(customEligibilityResult,"result of custom eligibility");
         setCustomEligibility({ age: customEligibilityResult[0], defiProperty: customEligibilityResult[1] });
       }
 
@@ -113,8 +115,8 @@ const DeFiEligibility = () => {
       </div>
       {customEligibility.age !== null && customEligibility.defiProperty !== null && (
         <div className="mt-4">
-          <p>Custom Age Eligibility: {customEligibility.age ? 'Yes' : 'No'}</p>
-          <p>Custom DeFi Property Eligibility: {customEligibility.defiProperty ? 'Yes' : 'No'}</p>
+          <p>Custom Age Eligibility: <span className='text-green-400'> {customEligibility.age ? <span className='text-green-400'>Yes</span> : <span className='text-red-600'>No</span>} </span></p>
+          <p>Custom DeFi Property Eligibility:  {customEligibility.defiProperty ? <span className='text-green-400'>Yes, Congratulations 🎉 You are eligible for a Loan 🏦</span> : <span className='text-red-600'>No</span>} </p>
         </div>
       )}
     </div>

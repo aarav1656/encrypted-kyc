@@ -114,9 +114,8 @@ function ConfidentialDID() {
       <div className="flex flex-col text-center justify-center items-center mb-10 mt-10">
         <img src={"/band.svg"} alt="Band" />
         <h1 className="my-10 text-2xl font-bold text-gray-500">
-          Confidential DID
+          Check Credit Score Privately
         </h1>
-        <img src={"/band.svg"} alt="Band" />
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-col md:w-1/2 p-4">
@@ -143,39 +142,11 @@ function ConfidentialDID() {
             </button>
           </div>
           <div className="text-gray-500">
-            Your credit score should be stored by a third trusted party, but you
-            can set it yourself for the demo: Choose a number between 1 and 850:
-          </div>
-          <br></br>
-          <form onSubmit={storeCreditScore}>
-            <input
-              type="number"
-              placeholder="Enter amount to mint"
-              value={creditScore}
-              onChange={handleCreditScoreChange}
-              className="border rounded-md px-4 py-2 mb-1 bg-white"
-            />
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-8"
-            >
-              Set My Score
-            </button>
-          </form>
-          {encryptedData && (
-            <div className="text-gray-500">
-              <p>Generated Ciphertext:</p>
-              <div className="overflow-y-auto h-10 flex flex-col">
-                <p>{"0x" + encryptedData.substring(0, 26) + "..."}</p>
-              </div>
-            </div>
-          )}
-          <div className="text-gray-500">
             {dialog && <div>{dialog}</div>}
             {loading && <div>{loading}</div>}
           </div>
         </div>
-        <div className="flex flex-col md:w-1/2 p-4 overflow-y-auto h-96 bg-amber-300">
+        {/* <div className="flex flex-col md:w-1/2 p-4 overflow-y-auto h-96 bg-amber-300">
           <div className="text-lg">Code Snippets:</div>
           <br></br>
           <div className="text-sm">
@@ -202,7 +173,7 @@ function ConfidentialDID() {
               Here
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
