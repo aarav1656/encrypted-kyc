@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
-pragma solidity >=0.8.13 <0.9.0;
+pragma solidity ^0.8.20;
 
 import "fhevm/abstracts/EIP712WithModifier.sol";
 import "fhevm/lib/TFHE.sol";
@@ -8,7 +8,7 @@ contract KYCAMLData is EIP712WithModifier {
     bytes32 private DOMAIN_SEPARATOR;
     address public trustedKYCProvider;
 
-    mapping(address => bytes) internal kycData;
+    mapping(address => euint32) internal kycData;
 
     constructor() EIP712WithModifier("KYCAML Authorization", "1") {
         trustedKYCProvider = msg.sender;
@@ -19,7 +19,7 @@ contract KYCAMLData is EIP712WithModifier {
         _;
     }
 
-    function storeKYCData(address user, bytes calldata encryptedData) external onlyProvider {
+    function storeKYCData(address user, euint32 encryptedData) external onlyProvider {
         kycData[user] = encryptedData;
     }
 
@@ -29,6 +29,6 @@ contract KYCAMLData is EIP712WithModifier {
         onlySignedPublicKey(publicKey, signature) 
         returns (bytes memory) 
     {
-        return TFHE.reencrypt(kycData[user], publicKey, 0);
+        return TFHE.reencrypt(kycData[user], publicKey);
     }
 }

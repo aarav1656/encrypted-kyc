@@ -2,6 +2,7 @@
 pragma solidity >=0.8.13 <0.9.0;
 
 import "fhevm/abstracts/EIP712WithModifier.sol";
+
 import "fhevm/lib/TFHE.sol";
 
 contract UserDataStorage is EIP712WithModifier {
@@ -9,7 +10,7 @@ contract UserDataStorage is EIP712WithModifier {
 
     struct EncryptedData {
         euint16 age;
-        euint256 defiProperty;
+        euint32 defiProperty;
     }
 
     mapping(address => EncryptedData) internal userData;
@@ -29,7 +30,7 @@ contract UserDataStorage is EIP712WithModifier {
     {
         userData[user] = EncryptedData({
             age: TFHE.asEuint16(encryptedAge),
-            defiProperty: TFHE.asEuint256(encryptedDefiProperty)
+            defiProperty: TFHE.asEuint32(encryptedDefiProperty)
         });
     }
 

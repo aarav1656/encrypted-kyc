@@ -19,7 +19,7 @@ contract UserConditionChecker {
 
     function isUserDefiPropertyAbove10000(address user) external view returns (bool) {
         UserDataStorage.EncryptedData memory data = dataStorage.getUserData(user);
-        ebool isAbove10000Encrypted = TFHE.gt(data.defiProperty, TFHE.asEuint256(10000));
+        ebool isAbove10000Encrypted = TFHE.gt(data.defiProperty, TFHE.asEuint32(10000));
         return TFHE.decrypt(isAbove10000Encrypted);
     }
 
@@ -30,7 +30,7 @@ contract UserConditionChecker {
     {
         UserDataStorage.EncryptedData memory data = dataStorage.getUserData(user);
         ebool isAgeAboveEncrypted = TFHE.gt(data.age, TFHE.asEuint16(ageThreshold));
-        ebool isDefiPropertyAboveEncrypted = TFHE.gt(data.defiProperty, TFHE.asEuint256(defiPropertyThreshold));
+        ebool isDefiPropertyAboveEncrypted = TFHE.gt(data.defiProperty, TFHE.asEuint32(defiPropertyThreshold));
         return (TFHE.decrypt(isAgeAboveEncrypted), TFHE.decrypt(isDefiPropertyAboveEncrypted));
     }
 }
