@@ -5,6 +5,7 @@ import { init } from "./utils/fhevm";
 import { Connect } from "./Connect";
 import ConfidentialDID from "./ConfidentialDID";
 import DeFiEligibility from "./DefiEligibilty";
+import KYCProvider from "./KYCProvider";
 
 function App() {
   const [isInitialized, setIsInitialized] = useState(false);
@@ -21,10 +22,11 @@ function App() {
 
   return (
     <Router>
-      <div className="App flex flex-col justify-center font-press-start text-black">
-        <nav className="flex justify-around p-4 bg-gray-200">
-          <Link to="/">Confidential DID</Link>
-          <Link to="/defi-eligibility">DeFi Eligibility</Link>
+      <div className="App flex flex-col font-press-start text-black">
+        <nav className="flex-col justify-around p-4 bg-gray-200">
+          <Link to="/">Confidential DID</Link> {" | "}
+          <Link to="/defi-eligibility">Check DeFi Eligibility</Link> {" | "}
+          <Link to="/kycprovider">KYC Provider</Link>
         </nav>
         <Routes>
           <Route 
@@ -40,6 +42,14 @@ function App() {
             element={
               <Connect>
                 {() => <DeFiEligibility />}
+              </Connect>
+            } 
+          />
+          <Route 
+            path="/kycprovider" 
+            element={
+              <Connect>
+                {() => <KYCProvider />}
               </Connect>
             } 
           />
