@@ -1,9 +1,11 @@
-### Inco Killer Use Case-> KYC/AML Data
+### Encrypted KYC & Anti Money Laundering Data Storage on Chain using Inco
 
 ![image](https://github.com/user-attachments/assets/b8fa880b-1e13-433c-9fd0-8a3234ab71fa)
 
 **Context and Importance:**
 KYC (Know Your Customer) and AML (Anti-Money Laundering) processes are crucial in the financial sector to verify the identity of users and prevent fraudulent activities such as money laundering and terrorism financing. In the DeFi space, these processes can enhance security and compliance with regulatory standards, making the ecosystem safer for all participants.
+
+## Demo
 
 **Implementation on-Chain:**
 1. **Data Collection and Encryption:**
