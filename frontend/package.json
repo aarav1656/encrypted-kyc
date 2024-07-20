@@ -12,7 +12,8 @@
     "ethers": "^6.6.4",
     "fhevmjs": "^0.4.0-3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
