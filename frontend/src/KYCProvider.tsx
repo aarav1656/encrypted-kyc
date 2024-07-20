@@ -60,7 +60,7 @@ const KYCProvider = () => {
             type="text"
             value={userAddress}
             onChange={(e) => setUserAddress(e.target.value)}
-            className="mt-2 p-2 border rounded w-full"
+            className="mt-2 p-2 border rounded w-full text-white"
             placeholder="0x..."
           />
         </div>
@@ -70,7 +70,7 @@ const KYCProvider = () => {
             type="number"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="mt-2 p-2 border rounded w-full"
+            className="mt-2 p-2 border rounded w-full text-white"
           />
         </div>
         <div className="mb-4">
@@ -79,7 +79,7 @@ const KYCProvider = () => {
             type="number"
             value={defiProperty}
             onChange={(e) => setDefiProperty(e.target.value)}
-            className="mt-2 p-2 border rounded w-full"
+            className="mt-2 p-2 border rounded w-full text-white"
           />
         </div>
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">

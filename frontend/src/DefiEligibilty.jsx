@@ -72,7 +72,7 @@ const DeFiEligibility = () => {
           type="text"
           value={userAddress}
           onChange={(e) => setUserAddress(e.target.value)}
-          className="mt-2 p-2 border rounded w-full"
+          className="mt-2 p-2 border rounded w-full text-white"
           placeholder="0x..."
         />
       </div>
@@ -99,7 +99,7 @@ const DeFiEligibility = () => {
           type="number"
           value={ageThreshold}
           onChange={(e) => setAgeThreshold(e.target.value)}
-          className="mt-2 p-2 border rounded w-full"
+          className="mt-2 p-2 border rounded w-full text-white"
         />
       </div>
       <div className="mt-4">
@@ -108,7 +108,7 @@ const DeFiEligibility = () => {
           type="number"
           value={defiPropertyThreshold}
           onChange={(e) => setDefiPropertyThreshold(e.target.value)}
-          className="mt-2 p-2 border rounded w-full"
+          className="mt-2 p-2 border rounded w-full text-white"
         />
       </div>
       {customEligibility.age !== null && customEligibility.defiProperty !== null && (
